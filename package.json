@@ -4,6 +4,7 @@
     "description": "对 localStorage 和 sessionStorage 的封装",
     "main": "lib/index.js",
     "module": "es/index.js",
+    "repository": "https://github.com/hnzycfcfed/storage.git",
     "scripts": {
         "test": "jest",
         "watch": "rollup -c -w",
