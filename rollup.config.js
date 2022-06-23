@@ -1,4 +1,5 @@
 import babel from '@rollup/plugin-babel';
+import commonjs from '@rollup/plugin-commonjs';
 import { eslint } from 'rollup-plugin-eslint';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
@@ -6,7 +7,8 @@ import pkg from './package.json';
 const pkgName = `storage`;
 
 const plugins = [
-    babel(),
+    commonjs(),
+    babel({ babelHelpers: 'bundled' }),
     eslint()
 ];
 
@@ -28,7 +30,6 @@ export default [
             { file: pkg.module, format: 'es' }
         ],
         plugins,
-        external: ['whatwg-fetch']
     },
     iifeConfig(`dist/${pkgName}.js`),
     iifeConfig(
